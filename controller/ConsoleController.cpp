@@ -4,22 +4,17 @@
 
 #include "ConsoleController.hpp"
 
+#include <iostream>
+
 #include "../core/GridFactory.hpp"
 #include "../core/TxtFile.hpp"
+#include "../core/TxtParser.hpp"
 
 namespace Controller
 {
-    void ConsoleController::init()
-    {
-        this->grid = Grid::GridFactory::createGrid(Grid::CLASSIC, 10, 10);
-        this->params = new Utils::Params(10, 10, 50, Grid::CLASSIC, 3, 2, 3, 1);
-        delete this->file;
-    }
-
     ConsoleController::ConsoleController(std::string m_filePath)
     {
-        this->file = new Utils::TxtFile(m_filePath);
-        this->ConsoleController::init();
+        this->ConsoleController::init(m_filePath);
     }
 
     void ConsoleController::run()
@@ -34,7 +29,6 @@ namespace Controller
     {
         delete this->file;
         delete this->params;
-        delete this;
     }
 
 }

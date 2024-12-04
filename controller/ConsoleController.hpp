@@ -14,7 +14,6 @@ namespace Controller
     public:
         explicit ConsoleController(std::string m_filePath);
         void run() override;
-        void init() override;
         ~ConsoleController() override;
     };
 }

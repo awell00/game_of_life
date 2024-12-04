@@ -18,6 +18,7 @@ namespace Utils
         virtual void close() = 0;
         virtual void read() = 0;
         virtual void write() = 0;
+        virtual std::string readByLine(int targetIndex) = 0;
         virtual ~File() = default;
     };
 }

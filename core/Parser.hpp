@@ -12,11 +12,10 @@ namespace Utils
 {
     class Parser {
     protected:
-        Params* params;
-        Parser(Params* m_params);
+        Parser();
     public:
         virtual ~Parser() = default;
-        virtual void parseParams() = 0;
+        virtual Params* parseParams() = 0;
     };
 }
 

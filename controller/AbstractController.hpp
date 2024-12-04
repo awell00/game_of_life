@@ -6,8 +6,8 @@
 #define CONTROLLER_HPP
 #include "../core/Algorithm.hpp"
 #include "../core/Params.hpp"
+#include "../core/TxtFile.hpp"
 #include "../view/AbstractView.hpp"
-
 
 namespace View
 {
@@ -20,13 +20,13 @@ namespace Controller
     protected:
         View::AbstractView* view{};
         Utils::Params* params{};
-        Utils::File* file{};
+        Utils::TxtFile* file{};
         Grid::AbstractGrid* grid{};
         Utils::Algorithm* algorithm{};
         AbstractController();
     public:
         virtual void run() = 0;
-        virtual void init() = 0;
+        virtual void init(std::string filePath);
         virtual ~AbstractController();
     };
 }
