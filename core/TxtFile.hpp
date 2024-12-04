@@ -19,7 +19,7 @@ namespace Utils
         void open() override;
         void close() override;
         void read() override;
-        std::string readByLine(int targetIndex);
+        std::string readByLine(int targetIndex) override;
         void write() override;
         ~TxtFile() override;
     };
