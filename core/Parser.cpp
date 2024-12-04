@@ -6,5 +6,5 @@
 
 namespace Utils
 {
-    Parser::Parser(Params* m_params) : params(m_params){}
+    Parser::Parser() =default;
 }

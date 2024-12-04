@@ -12,10 +12,10 @@ namespace Utils
 {
     class TxtParser : public Parser {
     private:
-        TxtFile& file;
+        TxtFile* file;
     public:
-        TxtParser(Params* m_params, TxtFile& m_file);
-        void parseParams() override;
+        TxtParser(TxtFile* m_file);
+        Params* parseParams() override;
     };
 }
 
