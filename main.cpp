@@ -1,8 +1,11 @@
-
 #include <iostream>
 
+#include "controller/AbstractController.hpp"
 #include "controller/ConsoleController.hpp"
 #include "controller/GUIController.hpp"
+#include "core/GridFactory.hpp"
+
+using namespace std;
 
 int main(int argc, char *argv[])
 {
@@ -16,9 +19,9 @@ int main(int argc, char *argv[])
         }
         else
         {
-            std::cout << "What is the path to initial file ?" << std::endl;
+            std::cout << "What is the path to initial file ?" << endl;
             std::string filePath;
-            std::cin >> filePath;
+            cin >> filePath;
             controller = new Controller::ConsoleController(filePath);
         }
     }
