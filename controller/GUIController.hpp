@@ -13,7 +13,7 @@ namespace Controller
     public:
         GUIController();
         void run() override;
-        void init() override;
+        void init(std::string filePath) override;
         void handleButton();
     };
 }
