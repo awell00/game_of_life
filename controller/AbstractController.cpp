@@ -3,6 +3,9 @@
 //
 
 #include "AbstractController.hpp"
+
+#include <iostream>
+
 #include "../core/TxtParser.hpp"
 #include "../core/GridFactory.hpp"
 
@@ -25,13 +28,22 @@ namespace Controller {
         params = parser->parseParams();
         this->params = params;
 
-        Grid::GridFactory::createGrid(this->params->getGridType(), this->params->getHeight(), this->params->getWidth());
+        this->grid = Grid::GridFactory::createGrid(this->params->getGridType(), this->params->getHeight(), this->params->getWidth());
+
+        this->grid->generateNewCells(this->file);
+
+        this->algorithm = new Utils::Algorithm(grid, this->params->getExactNeighborToBorn(), this->params->getMinNeighborToDie(), this->params->getMaxNeighborToDie());
+
         delete parser;
         delete this->file;
     }
     AbstractController::~AbstractController()
     {
-
+        delete this->algorithm;
+        delete this->file;
+        delete this->grid;
+        delete this->view;
+        delete this->params;
     }
 
 }
