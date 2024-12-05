@@ -6,6 +6,11 @@
 #define FILE_HPP
 #include <string>
 
+#include "AbstractGrid.hpp"
+namespace Grid
+{
+    class AbstractGrid;
+}
 namespace Utils
 {
     class File {
@@ -14,10 +19,11 @@ namespace Utils
         bool isOpen;
         explicit File(std::string m_filePath);
     public:
-        virtual void open() = 0;
+        virtual bool open(std::ios::openmode mode) = 0;
         virtual void close() = 0;
         virtual void read() = 0;
-        virtual void write() = 0;
+        virtual void write(std::string data) = 0;
+        virtual void writeGrid(Grid::AbstractGrid* grid) = 0;
         virtual std::string readByLine(int targetIndex) = 0;
         virtual ~File() = default;
     };

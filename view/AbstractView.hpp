@@ -14,8 +14,8 @@ namespace Controller
 namespace View{
     class AbstractView {
     protected:
-        bool running;
-        Controller::AbstractController* controller;
+        bool running{};
+        Controller::AbstractController* controller{};
         AbstractView();
     public:
         virtual void render() = 0;

@@ -26,7 +26,8 @@ add_executable(game_of_life main.cpp
         controller/ConsoleController.cpp
         controller/GUIController.cpp
         core/Parser.cpp
-        core/TxtParser.cpp)
+        core/TxtParser.cpp
+        view/ConsoleView.cpp)
 
 target_link_libraries(game_of_life
         PRIVATE nfd

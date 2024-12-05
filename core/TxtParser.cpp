@@ -25,7 +25,6 @@ namespace Utils
         int fileIterationDelay;
         Grid::GridType fileGridType;
 
-        file->open();
         std::string paramsLine = file->readByLine(1);
 
         std::istringstream iss(paramsLine);

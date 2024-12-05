@@ -13,14 +13,15 @@ namespace Utils
 {
     class TxtFile : public File {
     private:
-        std::ifstream file;
+        std::fstream file;
     public:
         explicit TxtFile(std::string m_filePath);
-        void open() override;
+        bool open(std::ios::openmode mode) override;
         void close() override;
         void read() override;
         std::string readByLine(int targetIndex) override;
-        void write() override;
+        void write(std::string data) override;
+        void writeGrid(Grid::AbstractGrid* grid) override;
         ~TxtFile() override;
     };
 }

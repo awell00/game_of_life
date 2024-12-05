@@ -6,6 +6,6 @@
 
 namespace View
 {
-    AbstractView::AbstractView(){}
+    AbstractView::AbstractView()= default;
     bool AbstractView::isRunning(){return running;}
 }

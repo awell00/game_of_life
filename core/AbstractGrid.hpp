@@ -9,6 +9,11 @@
 #include "AbstractCell.hpp"
 #include "File.hpp"
 
+namespace Utils
+{
+    class File;
+}
+
 namespace Grid
 {
     enum GridType
@@ -27,8 +32,11 @@ namespace Grid
         AbstractGrid(int m_gridHeight, int m_gridWidth);
     public:
         virtual void generateNewCells() = 0;
-        virtual void generateNewCells(Utils::File* startFile) = 0;
-        void toggleCells();
+        void generateNewCells(Utils::File* startFile) const;
+        int getHeight() const;
+        int getWidth() const;
+        void toggleCells() const;
+        Cell::AbstractCell* getCellByPosition(int lineIndex, int columnIndex) const;
         virtual void checkSameGrids() = 0;
         virtual ~AbstractGrid();
     };

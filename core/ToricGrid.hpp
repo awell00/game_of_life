@@ -16,7 +16,7 @@ namespace Grid
     public:
 
         void generateNewCells() override;
-        void generateNewCells(Utils::File* file) override;
+        void generateNewCells(Utils::File* file);
         void checkSameGrids() override;
     };
 

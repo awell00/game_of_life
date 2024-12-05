@@ -9,6 +9,7 @@
 #include "../core/GridFactory.hpp"
 #include "../core/TxtFile.hpp"
 #include "../core/TxtParser.hpp"
+#include "../view/ConsoleView.hpp"
 
 namespace Controller
 {
@@ -21,7 +22,10 @@ namespace Controller
     {
         for (int i = 0; i < this->params->getMaxIterations() ; i++)
         {
-
+            this->grid = this->algorithm->generateNewGrid();
+            this->algorithm->setNewGrid(this->grid);
+            Utils::TxtFile file("/Users/robin/IDE_Projects/CLionProjects/game_of_life/output.txt");
+            file.writeGrid(this->grid);
         }
     }
 
