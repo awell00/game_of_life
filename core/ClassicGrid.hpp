@@ -15,7 +15,7 @@ namespace Grid
         ClassicGrid(int m_gridHeight, int m_gridWidth);
     public:
         void generateNewCells() override;
-        void generateNewCells(Utils::File* file) override;
+        void generateNewCells(Utils::File* file);
         void checkSameGrids() override;
     };
 }
