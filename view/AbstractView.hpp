@@ -16,9 +16,9 @@ namespace View{
     protected:
         bool running{};
         Controller::AbstractController* controller{};
-        AbstractView();
     public:
         virtual void render() = 0;
+        AbstractView(Controller::AbstractController* controller);
         bool isRunning();
         virtual ~AbstractView() = default;
     };

@@ -27,11 +27,18 @@ add_executable(game_of_life main.cpp
         controller/GUIController.cpp
         core/Parser.cpp
         core/TxtParser.cpp
-        view/ConsoleView.cpp)
+        view/ConsoleView.cpp
+        view/GUIView.cpp
+        view/Slider.cpp)
 
 target_link_libraries(game_of_life
         PRIVATE nfd
         nfd sfml-graphics sfml-window sfml-system)
+
+configure_file(${CMAKE_SOURCE_DIR}/assets/font.otf ${CMAKE_BINARY_DIR}/assets/font.otf COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/assets/play.png ${CMAKE_BINARY_DIR}/assets/play.png COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/assets/pause.png ${CMAKE_BINARY_DIR}/assets/pause.png COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/assets/slide.png ${CMAKE_BINARY_DIR}/assets/slide.png COPYONLY)
 
 if(APPLE)
     set_target_properties(game_of_life PROPERTIES

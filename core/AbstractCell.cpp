@@ -14,7 +14,10 @@ namespace Cell
 
     bool AbstractCell::getAlive() const
     {
-        return this->alive;
+        if (this != nullptr)
+        {
+            return this->alive;
+        }
     }
 
     int* AbstractCell::getPosition()

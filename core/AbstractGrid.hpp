@@ -31,13 +31,13 @@ namespace Grid
         std::vector<Cell::AbstractCell*> toModifiateCells;
         AbstractGrid(int m_gridHeight, int m_gridWidth);
     public:
-        virtual void generateNewCells() = 0;
+        virtual void generateNewCells(int exactNeighborToBorn, int minNeighborToDie, int maxNeighborToDie) = 0;
         void generateNewCells(Utils::File* startFile) const;
         int getHeight() const;
         int getWidth() const;
         void toggleCells() const;
         Cell::AbstractCell* getCellByPosition(int lineIndex, int columnIndex) const;
-        virtual void checkSameGrids() = 0;
+        bool checkSameGrids() const;
         virtual ~AbstractGrid();
     };
 }

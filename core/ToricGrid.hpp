@@ -15,9 +15,8 @@ namespace Grid
         ToricGrid(int m_gridHeight, int m_gridWidth);
     public:
 
-        void generateNewCells() override;
+        void generateNewCells(int exactNeighborToBorn, int minNeighborToDie, int maxNeighborToDie) override;
         void generateNewCells(Utils::File* file);
-        void checkSameGrids() override;
     };
 
 }

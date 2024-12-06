@@ -37,14 +37,22 @@ namespace Grid
 
     void AbstractGrid::toggleCells() const
     {
-        for (int i = 0; this->toModifiateCells.size(); i++)
+        if (!this->toModifiateCells.empty())
         {
-            toModifiateCells[i]->changeLifeState();
+            for (int i = 0; i < this->toModifiateCells.size(); i++)
+            {
+                if (toModifiateCells[i] != nullptr)
+                {
+                    toModifiateCells[i]->changeLifeState();
+                }
+
+            }
         }
     }
 
     Cell::AbstractCell* AbstractGrid::getCellByPosition(int lineIndex, int columnIndex) const
     {
+
         if (lineIndex >= 0 && lineIndex < gridHeight && columnIndex >= 0 && columnIndex < gridWidth) {
             return this->grid[lineIndex][columnIndex];
         } else {
@@ -60,14 +68,31 @@ namespace Grid
         {
             line = file->readByLine(i);
             std::istringstream iss(line);
-            bool alive;
+            int alive;
             for (int j = 0; j < gridWidth; j++)
             {
                 iss >> alive;
                 int position[2] = {i-2, j};
-                grid[i-2][j] = Cell::CellFactory::createCell(Cell::CLASSIC, alive, position);
+                if (alive == 0 ||  alive == 1)
+                {
+                    grid[i-2][j] = Cell::CellFactory::createCell(Cell::CLASSIC, alive, position);
+                }
+                else if (alive == 2 || alive == 3)
+                {
+                    alive = alive == 2 ? 0 : 1;
+                    grid[i-2][j] = Cell::CellFactory::createCell(Cell::OBSTACLE, alive, position);
+                }
+                else
+                {
+                    grid[i-2][j] = Cell::CellFactory::createCell(Cell::CLASSIC, false, position);
+                }
             }
         }
+    }
+
+    bool AbstractGrid::checkSameGrids() const
+    {
+        return toModifiateCells.empty();
     }
 
     AbstractGrid::~AbstractGrid()

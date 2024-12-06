@@ -16,15 +16,22 @@ namespace Controller
     ConsoleController::ConsoleController(std::string m_filePath)
     {
         this->ConsoleController::init(m_filePath);
+        this->view = new View::ConsoleView(this);
     }
 
     void ConsoleController::run()
     {
+        this->view->render();
+        std::string outputPath;
+        std::string outputDirectory = std::filesystem::current_path();
+        outputDirectory += "/output";
+        Utils::File::createDirectory(outputDirectory);
         for (int i = 0; i < this->params->getMaxIterations() ; i++)
         {
-            this->grid = this->algorithm->generateNewGrid();
-            this->algorithm->setNewGrid(this->grid);
-            Utils::TxtFile file("/Users/robin/IDE_Projects/CLionProjects/game_of_life/output.txt");
+            runAlgorithm();
+            outputPath =  std::filesystem::current_path();
+            outputPath += "/output/outputFile" + std::to_string(i) + ".txt";
+            Utils::TxtFile file(outputPath);
             file.writeGrid(this->grid);
         }
     }

@@ -22,18 +22,17 @@ namespace Utils
         int fileExactNeighborToBorn;
         int fileMinNeighborToDie;
         int fileMaxNeighborToDie;
-        int fileIterationDelay;
         Grid::GridType fileGridType;
 
         std::string paramsLine = file->readByLine(1);
 
         std::istringstream iss(paramsLine);
 
-        iss >> fileHeight >> fileWidth >> fileMaxIteration >> fileGridTypeAsString >> fileExactNeighborToBorn >> fileMinNeighborToDie >> fileMaxNeighborToDie >> fileIterationDelay;
+        iss >> fileHeight >> fileWidth >> fileMaxIteration >> fileGridTypeAsString >> fileExactNeighborToBorn >> fileMinNeighborToDie >> fileMaxNeighborToDie;
 
         if (fileGridTypeAsString == "CLASSIC"){fileGridType = Grid::CLASSIC;}
         else if (fileGridTypeAsString == "TORIC"){fileGridType = Grid::TORIC;}
         else {fileGridType = Grid::CLASSIC;}
-        return new Params(fileHeight, fileWidth, fileMaxIteration, fileGridType, fileExactNeighborToBorn, fileMinNeighborToDie, fileMaxNeighborToDie, fileIterationDelay);
+        return new Params(fileHeight, fileWidth, fileMaxIteration + 1, fileGridType, fileExactNeighborToBorn, fileMinNeighborToDie, fileMaxNeighborToDie);
     }
 }

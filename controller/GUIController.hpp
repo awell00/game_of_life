@@ -5,16 +5,24 @@
 #ifndef GUICONTROLLER_HPP
 #define GUICONTROLLER_HPP
 #include "AbstractController.hpp"
+#include "../view/GUIView.hpp"
+
+namespace View
+{
+    class GUIView;
+}
 
 namespace Controller
 {
     class GUIController : public AbstractController
     {
+    private:
+        View::GUIView* view{};
     public:
-        GUIController();
+        explicit GUIController(std::string m_filePath);
         void run() override;
-        void init(std::string filePath) override;
-        void handleButton();
+        void createGUI();
+        void handleButton(Cell::AbstractCell* cell, std::string button) override;
     };
 }
 

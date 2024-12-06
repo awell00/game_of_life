@@ -4,11 +4,14 @@
 
 #include "ObstacleCell.hpp"
 
+#include "ClassicCell.hpp"
+
 namespace Cell
 {
     ObstacleCell::ObstacleCell(bool m_alive, const int m_position[2]) : AbstractCell(m_alive, m_position){}
 
     void ObstacleCell::changeLifeState(){;}
+
 }
 
 

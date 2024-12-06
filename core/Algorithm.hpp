@@ -14,10 +14,12 @@ namespace Utils
         int exactNeighborToBorn;
         int minNeighborToDie;
         int maxNeighborToDie;
+        int maxIterations;
+        int counter = 0;
     public:
-        Algorithm(Grid::AbstractGrid* m_grid, int m_exactNeighborToBorn, int m_minNeighborToDie, int m_maxNeighborToDie);
+        Algorithm(Grid::AbstractGrid* m_grid, int m_exactNeighborToBorn, int m_minNeighborToDie, int m_maxNeighborToDie, int m_maxIterations);
         void setNewGrid(Grid::AbstractGrid* newGrid);
-        Grid::AbstractGrid* generateNewGrid();
+        bool generateNewGrid();
     };
 }
 

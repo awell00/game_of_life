@@ -18,7 +18,6 @@ namespace Controller
 {
     class AbstractController {
     protected:
-        View::AbstractView* view{};
         Utils::Params* params{};
         Utils::TxtFile* file{};
         Grid::AbstractGrid* grid{};
@@ -27,6 +26,9 @@ namespace Controller
     public:
         virtual void run() = 0;
         virtual void init(std::string filePath);
+        bool runAlgorithm();
+        virtual void handleButton(Cell::AbstractCell* cell, std::string button){};
+        Grid::AbstractGrid* getGrid();
         virtual ~AbstractController();
     };
 }

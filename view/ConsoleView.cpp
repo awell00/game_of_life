@@ -7,9 +7,14 @@
 #include <iostream>
 
 
+namespace Controller
+{
+    class GUIController;
+}
+
 namespace View
 {
-    ConsoleView::ConsoleView() = default;
+    ConsoleView::ConsoleView(Controller::AbstractController* m_controller) : AbstractView(m_controller){}
 
     void ConsoleView::render()
     {

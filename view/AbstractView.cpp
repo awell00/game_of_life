@@ -6,6 +6,6 @@
 
 namespace View
 {
-    AbstractView::AbstractView()= default;
+    AbstractView::AbstractView(Controller::AbstractController* m_controller) : controller(m_controller){}
     bool AbstractView::isRunning(){return running;}
 }

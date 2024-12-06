@@ -6,7 +6,7 @@
 
 namespace Utils
 {
-    Params::Params(int m_height, int m_width, int m_maxIterations, Grid::GridType m_gridType, int m_exactNeighborToBorn, int m_minNeighborToDie, int m_maxNeighborToDie, int m_iterationDelay)
+    Params::Params(int m_height, int m_width, int m_maxIterations, Grid::GridType m_gridType, int m_exactNeighborToBorn, int m_minNeighborToDie, int m_maxNeighborToDie)
     {
         this->height = m_height;
         this->width = m_width;
@@ -15,7 +15,6 @@ namespace Utils
         this->exactNeighborToBorn = m_exactNeighborToBorn;
         this->minNeighborToDie = m_minNeighborToDie;
         this->maxNeighborToDie = m_maxNeighborToDie;
-        this->iterationDelay = m_iterationDelay;
     }
 
     int Params::getHeight() const {return this->height;}
@@ -25,7 +24,6 @@ namespace Utils
     int Params::getExactNeighborToBorn() const {return this->exactNeighborToBorn;}
     int Params::getMinNeighborToDie() const {return this->minNeighborToDie;}
     int Params::getMaxNeighborToDie() const {return this->maxNeighborToDie;}
-    int Params::getIterationDelay() const{return this->iterationDelay;}
 
 
 

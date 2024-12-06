@@ -18,9 +18,8 @@ namespace Utils
         int exactNeighborToBorn;
         int minNeighborToDie;
         int maxNeighborToDie;
-        int iterationDelay;
     public:
-        Params(int m_height, int m_width, int m_maxIterations, Grid::GridType m_gridType, int m_exactNeighborToBorn, int m_minNeighborToDie, int m_maxNeighborToDie, int m_iterationDelay);
+        Params(int m_height, int m_width, int m_maxIterations, Grid::GridType m_gridType, int m_exactNeighborToBorn, int m_minNeighborToDie, int m_maxNeighborToDie);
         int getHeight() const;
         int getWidth() const;
         int getMaxIterations() const;
@@ -28,7 +27,6 @@ namespace Utils
         int getExactNeighborToBorn() const;
         int getMinNeighborToDie() const;
         int getMaxNeighborToDie() const;
-        int getIterationDelay() const;
     };
 }
 

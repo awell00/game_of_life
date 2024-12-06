@@ -25,6 +25,7 @@ namespace Utils
         virtual void write(std::string data) = 0;
         virtual void writeGrid(Grid::AbstractGrid* grid) = 0;
         virtual std::string readByLine(int targetIndex) = 0;
+        static void createDirectory(std::string folderName);
         virtual ~File() = default;
     };
 }

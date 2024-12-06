@@ -4,6 +4,8 @@
 
 #ifndef ABSTRACTCELL_HPP
 #define ABSTRACTCELL_HPP
+#include <memory>
+
 namespace Cell
 {
     enum CellType

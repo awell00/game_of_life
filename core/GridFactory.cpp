@@ -4,6 +4,8 @@
 
 #include "GridFactory.hpp"
 
+#include <iostream>
+
 #include "ClassicGrid.hpp"
 #include "ToricGrid.hpp"
 
@@ -18,7 +20,7 @@ namespace Grid
         case TORIC:
             return new ToricGrid(m_gridHeight, m_gridWidth);
         default:
-            return nullptr;
+            return new ClassicGrid(m_gridHeight, m_gridWidth);
         }
     }
 

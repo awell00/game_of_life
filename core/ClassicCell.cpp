@@ -10,8 +10,7 @@ namespace Cell
 
     void ClassicCell::changeLifeState()
     {
-        this->alive = !this->alive;
+            this->alive = !this->alive;
     }
-
 }
 

@@ -20,6 +20,7 @@ namespace Controller {
 
     void AbstractController::init(std::string filePath)
     {
+
         this->file = new Utils::TxtFile(filePath);
 
         Utils::Params* params = nullptr;
@@ -32,7 +33,7 @@ namespace Controller {
 
         this->grid->generateNewCells(this->file);
 
-        this->algorithm = new Utils::Algorithm(grid, this->params->getExactNeighborToBorn(), this->params->getMinNeighborToDie(), this->params->getMaxNeighborToDie());
+        this->algorithm = new Utils::Algorithm(grid, this->params->getExactNeighborToBorn(), this->params->getMinNeighborToDie(), this->params->getMaxNeighborToDie(), this->params->getMaxIterations());
 
         delete parser;
         delete this->file;
@@ -42,8 +43,18 @@ namespace Controller {
         delete this->algorithm;
         delete this->file;
         delete this->grid;
-        delete this->view;
         delete this->params;
     }
+
+    bool AbstractController::runAlgorithm()
+    {
+        return this->algorithm->generateNewGrid();
+    }
+
+    Grid::AbstractGrid* AbstractController::getGrid()
+    {
+        return this->grid;
+    }
+
 
 }
