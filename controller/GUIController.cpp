@@ -15,7 +15,7 @@
 namespace Controller
 {
 
-    GUIController::GUIController(std::string m_filePath)
+    GUIController::GUIController()
     {
         this->createGUI();
         this->view = new View::GUIView(this, this->params->getWidth(), this->params->getHeight());

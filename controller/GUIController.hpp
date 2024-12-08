@@ -19,7 +19,7 @@ namespace Controller
     private:
         View::GUIView* view{};
     public:
-        explicit GUIController(std::string m_filePath);
+        explicit GUIController();
         void run() override;
         void createGUI();
         void handleButton(Cell::AbstractCell* cell, std::string button) override;
